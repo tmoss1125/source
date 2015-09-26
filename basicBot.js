@@ -238,7 +238,7 @@
     var basicBot = {
         version: "2.8.15",
         status: false,
-        name: "basicBot",
+        name: "SmirkBot",
         loggedInID: null,
         scriptLink: "https://rawgit.com/bscBot/source/master/basicBot.js",
         cmdLink: "http://git.io/245Ppg",
@@ -248,7 +248,7 @@
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: "basicBot",
+            botName: "SmirkBot",
             language: "english",
             chatLink: "https://rawgit.com/bscBot/source/master/lang/en.json",
             scriptLink: "https://rawgit.com/bscBot/source/master/basicBot.js",
@@ -257,11 +257,11 @@
             startupVolume: 0, // 0-100
             startupEmoji: false, // true or false
             autowoot: true,
-            autoskip: false,
+            autoskip: true,
             smartSkip: true,
             cmdDeletion: true,
             maximumAfk: 120,
-            afkRemoval: true,
+            afkRemoval:false,
             maximumDc: 60,
             bouncerPlus: true,
             blacklistEnabled: true,
@@ -272,30 +272,30 @@
             maximumCycletime: 10,
             voteSkip: false,
             voteSkipLimit: 10,
-            historySkip: false,
+            historySkip: true,
             timeGuard: true,
             maximumSongLength: 10,
-            autodisable: true,
-            commandCooldown: 30,
+            autodisable: false,
+            commandCooldown: 60,
             usercommandsEnabled: true,
-            thorCommand: false,
+            thorCommand: true,
             thorCooldown: 10,
             skipPosition: 3,
             skipReasons: [
                 ["theme", "This song does not fit the room theme. "],
-                ["op", "This song is on the OP list. "],
-                ["history", "This song is in the history. "],
+                ["op", "Ugh...This song again? Seriously? "],
+                ["history", "Why are you playing the songs from history? Place song thing new. "],
                 ["mix", "You played a mix, which is against the rules. "],
-                ["sound", "The song you played had bad sound quality or no sound. "],
-                ["nsfw", "The song you contained was NSFW (image or sound). "],
-                ["unavailable", "The song you played was not available for some users. "]
+                ["sound", "Hey! I'm not deaf and I can't hear this.... "],
+                ["nsfw", "WOAH. Can you not? I'd rather not have that image in my mind. "],
+                ["unavailable", "Hello? Hello? I thought so, this song has dissapeared. "]
             ],
-            afkpositionCheck: 15,
-            afkRankCheck: "ambassador",
+            afkpositionCheck: 156975786785674,
+            afkRankCheck: "user",
             motdEnabled: false,
-            motdInterval: 5,
+            motdInterval: 10,
             motd: "Temporary Message of the Day",
-            filterChat: true,
+            filterChat: false,
             etaRestriction: false,
             welcome: true,
             opLink: null,
@@ -306,7 +306,7 @@
             website: null,
             intervalMessages: [],
             messageInterval: 5,
-            songstats: true,
+            songstats: false,
             commandLiteral: "!",
             blacklists: {
                 NSFW: "https://rawgit.com/bscBot/custom/master/blacklists/NSFWlist.json",
@@ -364,7 +364,7 @@
             newBlacklisted: [],
             newBlacklistedSongFunction: null,
             roulette: {
-                rouletteStatus: false,
+                rouletteStatus: true,
                 participants: [],
                 countdown: null,
                 startRoulette: function () {
@@ -882,11 +882,11 @@
             if (basicBot.settings.welcome && greet) {
                 welcomeback ?
                     setTimeout(function (user) {
-                        API.sendChat(subChat(basicBot.chat.welcomeback, {name: user.username}));
+                        API.sendChat(subChat(basicBot.chat.Hey people! Look who joined again!, {name: user.username}));
                     }, 1 * 1000, user)
                     :
                     setTimeout(function (user) {
-                        API.sendChat(subChat(basicBot.chat.welcome, {name: user.username}));
+                        API.sendChat(subChat(basicBot.chat.Hi there!, {name: user.username}));
                     }, 1 * 1000, user);
             }
         },
